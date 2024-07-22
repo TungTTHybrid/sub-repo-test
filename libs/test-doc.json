@@ -1,0 +1,1052 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "ForeSight API",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/etexts/{id}": {
+            "get": {
+                "tags": [
+                    "Etext"
+                ],
+                "summary": "Get detail etext by etextId",
+                "operationId": "getDetailEtext",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get detail etext by etextId Successfull",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/DetailEtextResource"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/etexts": {
+            "post": {
+                "tags": [
+                    "Etext"
+                ],
+                "summary": "Store Etext",
+                "operationId": "storeEtext",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateEtextRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Created"
+                    }
+                }
+            }
+        },
+        "/api/etexts/{etextId}/versions": {
+            "get": {
+                "tags": [
+                    "Etext"
+                ],
+                "summary": "Get list of history",
+                "operationId": "getListOfHistory",
+                "parameters": [
+                    {
+                        "name": "etextId",
+                        "in": "path",
+                        "description": "Etext id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Limit",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "description": "Offset",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get list of history Successfull",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ListOfHistoryResource"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/etexts/{etextId}": {
+            "put": {
+                "tags": [
+                    "Etext"
+                ],
+                "summary": "Update etext",
+                "operationId": "updateEtext",
+                "parameters": [
+                    {
+                        "name": "etextId",
+                        "in": "path",
+                        "description": "Etext id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateEtextRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Update etext successfull",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/DetailEtextResource"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/etexts/{id}/preview": {
+            "get": {
+                "tags": [
+                    "Etext"
+                ],
+                "summary": "Get preview etext by etextId",
+                "operationId": "getPreviewEtext",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get preview etext by etextId Successfull",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/EtextPreviewResource"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/etexts/{etextId}/preview/components": {
+            "get": {
+                "tags": [
+                    "Etext"
+                ],
+                "summary": "Get preview etext component by etextId",
+                "operationId": "getPreviewEtextComponent",
+                "parameters": [
+                    {
+                        "name": "etextId",
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get preview etext component successfull",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PreviewPageDetailResource"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/folders": {
+            "get": {
+                "tags": [
+                    "Folder"
+                ],
+                "summary": "Get list folder by user",
+                "operationId": "getListFolder",
+                "responses": {
+                    "200": {
+                        "description": "Get list folder by user Successfull",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CreateEtextRequest"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/etexts/{etextId}/templates": {
+            "get": {
+                "tags": [
+                    "Template"
+                ],
+                "summary": "Get list of template",
+                "operationId": "getListOfTemplate",
+                "parameters": [
+                    {
+                        "name": "etextId",
+                        "in": "path",
+                        "description": "Etext id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get list of template Successfull",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ListOfTemplateResource"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Template"
+                ],
+                "summary": "Create template",
+                "operationId": "createTemplate",
+                "parameters": [
+                    {
+                        "name": "etextId",
+                        "in": "path",
+                        "description": "Etext id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateTemplateRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ListOfTemplateResource"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "CreateEtextRequest": {
+                "title": "Create etext request",
+                "properties": {
+                    "folderId": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "CreateTemplateRequest": {
+                "title": "Create Template request",
+                "properties": {
+                    "folderIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "templateName": {
+                        "type": "string"
+                    },
+                    "components": {
+                        "type": "array",
+                        "items": {
+                            "properties": {
+                                "component": {
+                                    "type": "string"
+                                },
+                                "content": {
+                                    "type": "string"
+                                },
+                                "parentIndex": {
+                                    "type": "number"
+                                },
+                                "position": {
+                                    "type": "string"
+                                },
+                                "tags": {
+                                    "type": "string"
+                                },
+                                "indexes": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "UpdateEtextRequest": {
+                "title": "Update etext request",
+                "properties": {
+                    "etext": {
+                        "properties": {
+                            "isUpdated": {
+                                "type": "boolean"
+                            },
+                            "status": {
+                                "type": "number"
+                            },
+                            "colorPaletteId": {
+                                "type": "number"
+                            },
+                            "manabunDictionaryId": {
+                                "type": "number"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "tableOfContents": {
+                        "properties": {
+                            "totalPage": {
+                                "type": "number"
+                            },
+                            "tableOfContents": {
+                                "properties": {
+                                    "startPage": {
+                                        "type": "number"
+                                    },
+                                    "endPage": {
+                                        "type": "number"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "indexOfContents": {
+                                "properties": {
+                                    "startPage": {
+                                        "type": "number"
+                                    },
+                                    "endPage": {
+                                        "type": "number"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "chapters": {
+                                "type": "array",
+                                "items": {
+                                    "properties": {
+                                        "title": {
+                                            "type": "string"
+                                        },
+                                        "annotation": {
+                                            "type": "string"
+                                        },
+                                        "chapterNo": {
+                                            "type": "number"
+                                        },
+                                        "sectionNo": {
+                                            "type": "number",
+                                            "nullable": true
+                                        },
+                                        "subsectionNo": {
+                                            "type": "number",
+                                            "nullable": true
+                                        },
+                                        "subsubsectionNo": {
+                                            "type": "number",
+                                            "nullable": true
+                                        },
+                                        "startPage": {
+                                            "type": "number"
+                                        },
+                                        "endPage": {
+                                            "type": "number"
+                                        },
+                                        "sections": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "title": {
+                                                        "type": "string"
+                                                    },
+                                                    "learningZone": {
+                                                        "type": "number"
+                                                    },
+                                                    "chapterNo": {
+                                                        "type": "number"
+                                                    },
+                                                    "sectionNo": {
+                                                        "type": "number"
+                                                    },
+                                                    "subsectionNo": {
+                                                        "type": "number",
+                                                        "nullable": true
+                                                    },
+                                                    "subsubsectionNo": {
+                                                        "type": "number",
+                                                        "nullable": true
+                                                    },
+                                                    "startPage": {
+                                                        "type": "number"
+                                                    },
+                                                    "endPage": {
+                                                        "type": "number"
+                                                    },
+                                                    "subsections": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "properties": {
+                                                                "title": {
+                                                                    "type": "string"
+                                                                },
+                                                                "chapterNo": {
+                                                                    "type": "number"
+                                                                },
+                                                                "sectionNo": {
+                                                                    "type": "number"
+                                                                },
+                                                                "subsectionNo": {
+                                                                    "type": "number"
+                                                                },
+                                                                "subsubsectionNo": {
+                                                                    "type": "number",
+                                                                    "nullable": true
+                                                                },
+                                                                "startPage": {
+                                                                    "type": "number"
+                                                                },
+                                                                "endPage": {
+                                                                    "type": "number"
+                                                                },
+                                                                "subsubsections": {
+                                                                    "properties": {
+                                                                        "title": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "chapterNo": {
+                                                                            "type": "number"
+                                                                        },
+                                                                        "sectionNo": {
+                                                                            "type": "number"
+                                                                        },
+                                                                        "subsectionNo": {
+                                                                            "type": "number"
+                                                                        },
+                                                                        "subsubsectionNo": {
+                                                                            "type": "number"
+                                                                        },
+                                                                        "startPage": {
+                                                                            "type": "number"
+                                                                        },
+                                                                        "endPage": {
+                                                                            "type": "number"
+                                                                        }
+                                                                    },
+                                                                    "type": "object"
+                                                                }
+                                                            },
+                                                            "type": "object"
+                                                        }
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "components": {
+                        "type": "array",
+                        "items": {
+                            "properties": {
+                                "id": {
+                                    "type": "string"
+                                },
+                                "component": {
+                                    "type": "string"
+                                },
+                                "content": {
+                                    "type": "string"
+                                },
+                                "parentId": {
+                                    "type": "string"
+                                },
+                                "position": {
+                                    "type": "string"
+                                },
+                                "chapterNo": {
+                                    "type": "number"
+                                },
+                                "sectionNo": {
+                                    "type": "number"
+                                },
+                                "subsectionNo": {
+                                    "type": "number"
+                                },
+                                "subsubsectionNo": {
+                                    "type": "number"
+                                },
+                                "isCompleted": {
+                                    "type": "boolean"
+                                },
+                                "page": {
+                                    "type": "number"
+                                },
+                                "tags": {
+                                    "type": "string"
+                                },
+                                "indexes": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "DetailEtextResource": {
+                "title": "Detail etext resource",
+                "properties": {
+                    "etext": {
+                        "$ref": "#/components/schemas/EtextResource"
+                    },
+                    "components": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/EtextComponentResource"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "EtextComponentResource": {
+                "title": "Etext component resource",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "component": {
+                        "type": "string"
+                    },
+                    "content": {
+                        "type": "string"
+                    },
+                    "parentId": {
+                        "type": "string"
+                    },
+                    "position": {
+                        "type": "string"
+                    },
+                    "chapterNo": {
+                        "type": "integer"
+                    },
+                    "sectionNo": {
+                        "type": "integer"
+                    },
+                    "subsectionNo": {
+                        "type": "integer"
+                    },
+                    "subsubsectionNo": {
+                        "type": "integer"
+                    },
+                    "isCompleted": {
+                        "type": "boolean"
+                    },
+                    "tags": {
+                        "type": "string"
+                    },
+                    "indexes": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            },
+            "EtextPreviewResource": {
+                "title": "Preview etext resource",
+                "properties": {
+                    "etext": {
+                        "properties": {
+                            "courseName": {
+                                "type": "string"
+                            },
+                            "etextName": {
+                                "type": "string"
+                            },
+                            "coverImageId": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "tableOfContents": {
+                        "properties": {
+                            "totalPage": {
+                                "type": "integer"
+                            },
+                            "tableOfContents": {
+                                "properties": {
+                                    "startPage": {
+                                        "type": "integer"
+                                    },
+                                    "endPage": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "indexOfContents": {
+                                "properties": {
+                                    "startPage": {
+                                        "type": "integer"
+                                    },
+                                    "endPage": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "chapters": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/ChapterResource"
+                                }
+                            },
+                            "legalReforms": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/LegalReFormsResource"
+                                }
+                            }
+                        },
+                        "type": "object"
+                    }
+                },
+                "type": "object"
+            },
+            "EtextResource": {
+                "title": "Etext resource",
+                "properties": {
+                    "courseName": {
+                        "type": "string"
+                    },
+                    "etextName": {
+                        "type": "string"
+                    },
+                    "folderName": {
+                        "type": "string"
+                    },
+                    "status": {
+                        "type": "integer"
+                    },
+                    "manabunDictionaryId": {
+                        "type": "integer"
+                    },
+                    "coverImageId": {
+                        "type": "integer"
+                    },
+                    "colorPaletteId": {
+                        "type": "integer"
+                    },
+                    "publicUrl": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "EtextVersionResource": {
+                "title": "Etext version resource",
+                "properties": {
+                    "version": {
+                        "type": "number"
+                    },
+                    "createdAt": {
+                        "type": "string"
+                    },
+                    "user": {
+                        "type": "array",
+                        "items": {
+                            "properties": {
+                                "id": {
+                                    "type": "string"
+                                },
+                                "name": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "LegalReFormsResource": {
+                "title": "LegalReForms resource",
+                "properties": {
+                    "compnentId": {
+                        "type": "string"
+                    },
+                    "page": {
+                        "type": "number"
+                    },
+                    "chapterNo": {
+                        "type": "number"
+                    },
+                    "sectionNo": {
+                        "type": "number"
+                    },
+                    "subsectionNo": {
+                        "type": "number"
+                    },
+                    "subsubsectionNo": {
+                        "type": "number"
+                    },
+                    "chapterTitle": {
+                        "type": "string"
+                    },
+                    "sectionTitle": {
+                        "type": "string"
+                    },
+                    "subsectionTitle": {
+                        "type": "string"
+                    },
+                    "subsubsectionTitle": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "ListOfHistoryResource": {
+                "title": "List of history resources",
+                "properties": {
+                    "total": {
+                        "type": "number"
+                    },
+                    "count": {
+                        "type": "number"
+                    },
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/EtextVersionResource"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "ListOfTemplateResource": {
+                "title": "List of template resources",
+                "properties": {
+                    "total": {
+                        "type": "number"
+                    },
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/TemplateResource"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "TemplateComponentResource": {
+                "title": "Template component resource",
+                "properties": {
+                    "id": {
+                        "type": "number"
+                    },
+                    "component": {
+                        "type": "string"
+                    },
+                    "content": {
+                        "type": "string"
+                    },
+                    "parentIndex": {
+                        "type": "number"
+                    },
+                    "position": {
+                        "type": "string"
+                    },
+                    "tags": {
+                        "type": "string"
+                    },
+                    "indexes": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "TemplateResource": {
+                "title": "Template resource",
+                "properties": {
+                    "id": {
+                        "type": "number"
+                    },
+                    "templateName": {
+                        "type": "string"
+                    },
+                    "components": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/TemplateComponentResource"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "PreviewEtextComponentResource": {
+                "title": "Preview etext component resource",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "component": {
+                        "type": "string"
+                    },
+                    "content": {
+                        "type": "string"
+                    },
+                    "parentId": {
+                        "type": "number"
+                    },
+                    "position": {
+                        "type": "string"
+                    },
+                    "chapterNo": {
+                        "type": "integer"
+                    },
+                    "sectionNo": {
+                        "type": "integer"
+                    },
+                    "subsectionNo": {
+                        "type": "integer"
+                    },
+                    "subsubsectionNo": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            },
+            "FolderCollection": {
+                "title": "Folder Collection",
+                "properties": {
+                    "total": {
+                        "description": "Total items",
+                        "type": "integer"
+                    },
+                    "items": {
+                        "description": "List items",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/FolderResource"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "FolderResource": {
+                "title": "Folder Resource",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "PreviewPageDetailResource": {
+                "title": "Page detail resource",
+                "properties": {
+                    "page": {
+                        "type": "number"
+                    },
+                    "pageId": {
+                        "type": "string"
+                    },
+                    "components": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/PreviewEtextComponentResource"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "ChapterResource": {
+                "title": "Chapter resource",
+                "properties": {
+                    "title": {
+                        "type": "string"
+                    },
+                    "annotation": {
+                        "type": "string"
+                    },
+                    "chapterNo": {
+                        "type": "number"
+                    },
+                    "startPage": {
+                        "type": "number"
+                    },
+                    "endPage": {
+                        "type": "number"
+                    },
+                    "sections": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/SectionResource"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "SectionResource": {
+                "title": "Section resource",
+                "properties": {
+                    "title": {
+                        "type": "string"
+                    },
+                    "learningZone": {
+                        "type": "string"
+                    },
+                    "sectionNo": {
+                        "type": "number"
+                    },
+                    "chapterNo": {
+                        "type": "number"
+                    },
+                    "startPage": {
+                        "type": "number"
+                    },
+                    "endPage": {
+                        "type": "number"
+                    },
+                    "subsections": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/SubsectionResource"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "SubsectionResource": {
+                "title": "Subsection resource",
+                "properties": {
+                    "title": {
+                        "type": "string"
+                    },
+                    "subsectionNo": {
+                        "type": "number"
+                    },
+                    "startPage": {
+                        "type": "number"
+                    },
+                    "endPage": {
+                        "type": "number"
+                    },
+                    "subsections": {
+                        "$ref": "#/components/schemas/SubsubsectionResource"
+                    }
+                },
+                "type": "object"
+            },
+            "SubsubsectionResource": {
+                "title": "Subsubsection resource",
+                "properties": {
+                    "title": {
+                        "type": "string"
+                    },
+                    "subsubsectionNo": {
+                        "type": "number"
+                    },
+                    "startPage": {
+                        "type": "number"
+                    },
+                    "endPage": {
+                        "type": "number"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    }
+}
